@@ -79,9 +79,13 @@ function search() {
 
 // حذف منتج
 function deleteProduct(index) {
-  productsList.splice(index, 1);
-  localStorage.setItem('allproducts', JSON.stringify(productsList));
-  displayProduct();
+  const confirmDelete = confirm("Do you want to delete this?");
+
+  if (confirmDelete) {
+    productsList.splice(index, 1); // حذف المنتج
+    localStorage.setItem('allproducts', JSON.stringify(productsList)); // تحديث التخزين
+    displayProduct(); // تحديث العرض
+  }
 }
 
 // تعديل منتج
